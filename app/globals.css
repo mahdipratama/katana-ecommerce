@@ -9,7 +9,7 @@
   --primary: #40444d;
   --secondary: #d81f27;
   --heading-color: #181919;
-  --paragraph-color: rgba(26, 30, 30, 0.702);
+  --paragraph-color: #1a1e1eb3;
   --accent1: #1a1e1e80;
   --accent2: #d81f271a;
   --accent3: #fefefecc;
@@ -35,19 +35,13 @@ body {
   scroll-behavior: smooth;
 }
 
-.app {
-  width: 1200px;
-  margin-inline: auto;
-  min-height: 100vh;
-}
-
 li {
   list-style: none;
   transition: color 250ms ease;
 }
 
 li:hover {
-  color: var(--secondary);
+  opacity: 0.7;
 }
 
 img,
@@ -74,4 +68,90 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+.app {
+  max-width: 1320px;
+  margin-inline: auto;
+  /* min-height: 100vh; */
+}
+
+.layout {
+  @apply my-10 mx-5;
+}
+
+.hamburger {
+  @apply z-10 mr-[-13px] sm:hidden;
+}
+
+.hamburger .ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hamburger .ham .line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: var(--heading-color);
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.hamburger .hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.hamburger .hamRotate180.active {
+  transform: rotate(180deg);
+}
+
+.hamburger .ham8 .middle {
+  stroke-dasharray: 40 142;
+  transform-origin: 50%;
+  transition: transform 400ms;
+}
+
+.hamburger .ham8 .bottom {
+  stroke-dasharray: 40 85;
+  transform-origin: 50%;
+  transition: transform 400ms, stroke-dashoffset 400ms;
+}
+
+.hamburger .ham8 .top {
+  stroke-dasharray: 40 160;
+}
+
+.hamburger .ham8.active .top {
+  stroke-dashoffset: -64px;
+}
+
+.hamburger .ham8.active .middle {
+  transform: rotate(90deg);
+}
+
+.hamburger .ham8.active .bottom {
+  stroke-dashoffset: -64px;
+}
+
+@media (max-width: 639px) {
+  .wrapper_menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    /* right: 0; */
+    width: 100%;
+    height: 100%;
+    background: var(--secondary);
+    transition: right 0.3s ease-in;
+  }
+}
+
+.wrapper_menu.active {
+  right: 0;
 }
