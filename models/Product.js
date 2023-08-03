@@ -18,6 +18,7 @@ const ProductSchema = new Schema({
   },
   isFeatured: Boolean,
   isTrending: Boolean,
+  relations: [String],
 });
 
 const Product = models?.Product || model('Product', ProductSchema);
