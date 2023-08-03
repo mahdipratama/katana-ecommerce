@@ -1,27 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Rubik:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --main-bg: #ffff;
+  --primary: #40444d;
+  --secondary: #d81f27;
+  --heading-color: #181919;
+  --paragraph-color: rgba(26, 30, 30, 0.702);
+  --accent1: #1a1e1e80;
+  --accent2: #d81f271a;
+  --accent3: #fefefecc;
+
+  --ff-heading: 'Merriweather', serif;
+  --ff-text: 'Rubik', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: var(--ff-text);
+  scroll-behavior: smooth;
+}
+
+.app {
+  width: 1200px;
+  margin-inline: auto;
+  min-height: 100vh;
+}
+
+li {
+  list-style: none;
+  transition: color 250ms ease;
+}
+
+li:hover {
+  color: var(--secondary);
+}
+
+img,
+span,
+input,
+button {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
