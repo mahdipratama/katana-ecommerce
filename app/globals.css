@@ -77,7 +77,7 @@ h6 {
 }
 
 .layout {
-  @apply py-10 mx-5;
+  @apply py-7 mx-5 sm:py-10;
 }
 
 .hamburger {
