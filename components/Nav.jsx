@@ -23,7 +23,7 @@ function Nav() {
 
       <div
         onClick={() => setActiveMenu(prev => !prev)}
-        className="hamburger z-10 ">
+        className={`hamburger z-10 ${activeMenu && 'fixed right-5'}`}>
         <svg
           className={`ham hamRotate ham8 ${activeMenu && 'active'}`}
           viewBox="0 0 100 100"
