@@ -21,6 +21,9 @@ module.exports = {
         accent2: '#d81f271a',
         accent3: '#fefefecc',
       },
+      boxShadow: {
+        small: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+      },
     },
   },
   plugins: [],

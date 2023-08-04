@@ -46,7 +46,6 @@ button:hover {
 }
 
 img,
-span,
 input,
 button {
   display: block;
@@ -156,4 +155,8 @@ h6 {
 
 .wrapper_menu.active {
   right: 0;
+}
+
+.mySwiper {
+  width: 80%;
 }

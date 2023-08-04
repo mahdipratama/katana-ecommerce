@@ -1,11 +1,38 @@
 'use client';
+import { useState, useEffect } from 'react';
 
+import Featured from '@/components/Featured';
 import Hero from '@/components/Hero';
 
 export default function Home() {
+  const [products, setProducts] = useState([]);
+
+  const getAllProducts = async () => {
+    try {
+      const res = await fetch('/api/products');
+
+      if (!res) throw new Error("Could'nt get the data");
+
+      const data = await res.json();
+
+      setProducts(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
+  const categoriesNames = [
+    ...new Set(products.map(product => product.category)),
+  ];
+
   return (
     <>
       <Hero />
+      <Featured products={products} />
     </>
   );
 }
