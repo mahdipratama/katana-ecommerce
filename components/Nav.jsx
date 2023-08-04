@@ -48,7 +48,7 @@ function Nav() {
           onClick={() => setActiveMenu(false)}
           className="absolute top-[20%] left-[20%] gap-8 text-[18px] 
           flex flex-col text-white font-semibold
-          sm:static sm:text-[16px] sm:font-light sm:flex-row sm:gap-5 md:gap-8 lg:gap-11 sm:text-headingColor">
+          sm:static sm:text-[16px] sm:font-light sm:flex-row sm:gap-5 md:gap-8 lg:gap-16 lg:mr-1 sm:text-headingColor ">
           <Link href={'/'}>
             <li>Home</li>
           </Link>
