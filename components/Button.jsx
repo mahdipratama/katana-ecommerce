@@ -7,7 +7,7 @@ const Button = ({ children, primary, secondary, shadow, ...rest }) => {
     {
       'bg-primary text-white text-[16px] sm:text-[18px] font-semibold w-full inline-flex justify-center py-2':
         primary && !shadow,
-      'bg-secondary text-white px-[32px] py-[12px] uppercase tracking-widest':
+      'bg-secondary text-white px-[32px] py-[12px] uppercase tracking-[5px]':
         secondary && !shadow,
       'bg-accent2 text-black px-[32px] py-[10px] mt-4 mx-auto': shadow,
     }
