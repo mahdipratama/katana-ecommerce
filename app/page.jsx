@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import CustomKatana from '@/components/CustomKatana';
 import Banner from '@/components/Banner';
 import AnimeKatana from '@/components/AnimeKatana';
+import TantoKatana from '@/components/TantoKatana';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -39,6 +40,7 @@ export default function Home() {
       <CustomKatana products={products} />
       <Banner />
       <AnimeKatana products={products} />
+      <TantoKatana products={products} />
     </>
   );
 }
