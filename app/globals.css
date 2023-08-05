@@ -81,6 +81,10 @@ h6 {
   @apply py-7 mx-5 sm:py-10;
 }
 
+.heading_section {
+  @apply text-[24px] font-semibold lg:text-[28px] mb-[50px];
+}
+
 .hamburger {
   @apply z-10 mr-[-13px] sm:hidden;
 }
@@ -150,7 +154,7 @@ h6 {
     height: 100%;
     background: var(--secondary);
     transition: right 0.3s ease-in;
-    z-index: 100;
+    z-index: 9;
   }
 }
 

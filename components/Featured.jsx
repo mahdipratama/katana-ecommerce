@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
 import FeaturedCard from './FeaturedCard';
 
 // Import Swiper React component
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 // import SwiperCore, { Autoplay } from 'swiper/modules';
 import { Autoplay } from 'swiper/modules';
 import SwiperCore from 'swiper';
@@ -26,12 +26,12 @@ function Featured({ products }) {
 
   return (
     <section className="layout">
-      <h1 className="text-[24px] font-semibold lg:text-[28px] mb-[50px]">
+      <h2 className="heading_section">
         Featured{' '}
-        <span className="inline-block mb-[3px]">
+        <span className="inline-block mb-[5px]">
           <img src="/assets/icons/line.png" aria-hidden />
         </span>
-      </h1>
+      </h2>
 
       <Swiper
         loop={true}
