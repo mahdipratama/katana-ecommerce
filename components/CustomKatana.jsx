@@ -32,14 +32,14 @@ function CustomKatana({ products }) {
           />
         </div>
 
-        <div className="flex-1 flex flex-col flex-wrap sm:gap-4 sm:flex-row justify-center items-center lg:gap-5">
+        <div className="flex-1 flex flex-col flex-wrap gap-5 sm:flex-row justify-center items-center lg:gap-5">
           {customProducts.map(product => (
             <Card key={product._id} customProduct={product} />
           ))}
 
-          <Link href={'/products'} style={{ flexBasis: '300px' }}>
+          <a href={'/products'} className="sm:basis-[300px]">
             <Button shadow>View More</Button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

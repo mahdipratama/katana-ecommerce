@@ -8,7 +8,7 @@ function Card({ customProduct }) {
   return (
     <div
       className="
-      bg-white overflow-hidden shadow-small mb-4 rounded-[3px]
+      bg-white overflow-hidden shadow-small rounded-[3px]
         w-[230px] h-[310px] flex flex-col
         sm:w-[260px] sm:h-[390px] lg:w-[230px] lg:h-[300px] lg:mb-0
         ">
