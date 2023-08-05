@@ -28,9 +28,7 @@ function Card({ customProduct }) {
           $ {prices?.oldPrice}
         </span>
 
-        <h4 className="text-primary text-[16px] ssm:text-[18px] sm:text-[20px] font-semibold mb-3  tracking-wide">
-          {name}
-        </h4>
+        <h4 className="text-primary text-[16px] font-medium mb-3">{name}</h4>
 
         <Link href={'product'}>
           <Button primary>
