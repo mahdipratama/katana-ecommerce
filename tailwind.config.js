@@ -27,6 +27,7 @@ module.exports = {
       screens: {
         rsm: '450px',
         msm: '500px',
+        dlg: { max: '1023px' },
       },
     },
   },

@@ -7,8 +7,8 @@ import Link from 'next/link';
 function Banner() {
   return (
     <section className="layout">
-      <div className="relative flex flex-col items-center lg:flex-row">
-        <picture className="absolute right-0 left-0 top-0 lg:top-[10px]">
+      <div className="relative flex flex-col items-center lg:flex-row bg-[#0000000f]	">
+        <picture className="absolute right-0 left-0 top-0">
           <source
             media="(max-width: 668px)"
             srcSet="/assets/icons/accent2.png"
@@ -43,10 +43,13 @@ function Banner() {
         </div>
 
         <div className="flex-1">
+          <div
+            className="w-full h-[380px] bg-transparent dlg:hidden"
+            aria-hidden></div>
           <img
             src="/assets/images/arrival.png"
             alt="samurai"
-            className="ml-auto"
+            className="lg:absolute lg:w-[580px] top-[-10%] right-0"
           />
         </div>
       </div>
