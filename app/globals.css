@@ -169,3 +169,10 @@ h6 {
   cursor: -ms-grab;
   cursor: grab;
 }
+
+.bg_banner {
+  top: 0;
+  left: 0;
+  right: 50%;
+  bottom: 50%;
+}

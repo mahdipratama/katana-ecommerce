@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Featured from '@/components/Featured';
 import Hero from '@/components/Hero';
 import CustomKatana from '@/components/CustomKatana';
+import Banner from '@/components/Banner';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -35,6 +36,7 @@ export default function Home() {
       <Hero />
       <Featured products={products} />
       <CustomKatana products={products} />
+      <Banner />
     </>
   );
 }
