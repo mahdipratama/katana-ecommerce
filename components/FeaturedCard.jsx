@@ -9,17 +9,27 @@ function FeaturedCard({ featuredProduct }) {
 
   // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   return (
-    <div className="bg-white max-w-[221px] sm:w-[260px] rounded-[3px] overflow-hidden shadow-small mb-4">
-      <div>
-        <img src={pictures[0]} alt="product image" />
+    <div
+      className="card_featured
+      bg-white overflow-hidden shadow-small mb-4 rounded-[3px] 
+        w-[230px] h-[400px] flex flex-col
+        msm:w-[270px] lg:w-[300px]
+        ">
+      <div className="object-cover w-[100%] h-[350px] sm:h-[250px]">
+        <img
+          src={pictures[0]}
+          alt="product image"
+          className="w-full h-full object-cover"
+        />
       </div>
-      <div className="pb-[16px] py-[10px] px-[20px]">
+
+      <div className="pb-[16px] py-[10px] px-[20px] flex-1">
         <span className="mr-3 text-secondary text-[25px] font-semibold">
           $ {prices.discPrice}
         </span>
         <span className="text-accent1 line-through">$ {prices.oldPrice}</span>
 
-        <h4 className="text-primary text-[20px] font-semibold mb-3 mt-[-5px] tracking-wide">
+        <h4 className="text-primary text-[16px] ssm:text-[18px] sm:text-[20px] font-semibold mb-3 mt-[-5px] tracking-wide">
           {name}
         </h4>
 

@@ -150,6 +150,7 @@ h6 {
     height: 100%;
     background: var(--secondary);
     transition: right 0.3s ease-in;
+    z-index: 100;
   }
 }
 
@@ -157,6 +158,10 @@ h6 {
   right: 0;
 }
 
-.mySwiper {
-  width: 80%;
+.card_featured {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
 }

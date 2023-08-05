@@ -26,7 +26,7 @@ function Featured({ products }) {
 
   return (
     <section className="layout">
-      <h1 className="text-[24px] font-semibold lg:text-[28px]">
+      <h1 className="text-[24px] font-semibold lg:text-[28px] mb-[50px]">
         Featured{' '}
         <span className="inline-block mb-[3px]">
           <img src="/assets/icons/line.png" aria-hidden />
@@ -35,14 +35,13 @@ function Featured({ products }) {
 
       <Swiper
         loop={true}
-        loopFillGroupWithBlank={true}
         pagination={{
           clickable: true,
         }}
         autoplay={{ delay: 3000 }}
         navigation={true}
         modules={[EffectCoverflow, Pagination, Navigation]}
-        className="mySwiper"
+        className="w-[80%] sm:w-[100%]"
         effect={'coverflow'}
         coverflowEffect={{
           rotate: 10,
@@ -55,17 +54,23 @@ function Featured({ products }) {
           500: {
             slidesPerView: 1,
           },
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
           768: {
             slidesPerView: 3,
             spaceBetween: 30,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 150,
           },
         }}>
         {featuredProducts.map(product => (
-          <SwiperSlide className="px-[50px]" key={product._id}>
+          <SwiperSlide
+            className="px-[20px] rsm:px-[50px] msm:px-[60px] sm:px-0"
+            key={product._id}>
             <FeaturedCard key={product._id} featuredProduct={product} />
           </SwiperSlide>
         ))}
