@@ -82,7 +82,7 @@ h6 {
 }
 
 .heading_section {
-  @apply text-[24px] font-semibold lg:text-[28px] mb-[50px];
+  @apply text-[24px] mb-[50px] font-semibold lg:text-[28px] lg:pt-10;
 }
 
 .hamburger {

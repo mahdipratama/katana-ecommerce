@@ -23,7 +23,7 @@ function CustomKatana({ products }) {
         </span>
       </h2>
 
-      <div className="flex flex-col items-center gap-8 lg:flex-row-reverse ">
+      <div className="flex flex-col items-center lg:flex-row-reverse ">
         <div className="max-w-[350px] h-[auto] lg:max-w-[500px] flex-1">
           <img
             src="/assets/images/custom.png"
@@ -32,12 +32,12 @@ function CustomKatana({ products }) {
           />
         </div>
 
-        <div className="flex-1 flex flex-col flex-wrap gap-y-3 sm:flex-row justify-center lg:gap-5">
+        <div className="flex-1 flex flex-col flex-wrap sm:gap-4 sm:flex-row justify-center items-center lg:gap-5">
           {customProducts.map(product => (
             <Card key={product._id} customProduct={product} />
           ))}
 
-          <Link href={'/products'}>
+          <Link href={'/products'} style={{ flexBasis: '300px' }}>
             <Button shadow>View More</Button>
           </Link>
         </div>

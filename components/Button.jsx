@@ -9,7 +9,7 @@ const Button = ({ children, primary, secondary, shadow, ...rest }) => {
         primary && !shadow,
       'bg-secondary text-white px-[32px] py-[12px] uppercase tracking-widest':
         secondary && !shadow,
-      'bg-accent2 text-black px-[32px] py-[10px] mt-4': shadow,
+      'bg-accent2 text-black px-[32px] py-[10px] mt-4 mx-auto': shadow,
     }
   );
 
