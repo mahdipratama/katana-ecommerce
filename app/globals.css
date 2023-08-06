@@ -9,7 +9,7 @@
   --primary: #40444d;
   --secondary: #d81f27;
   --heading-color: #181919;
-  --paragraph-color: #1a1e1eb3;
+  --paragraph-color: rgba(26, 30, 30, 0.702);
   --accent1: #1a1e1e80;
   --accent2: #d81f271a;
   --accent3: #fefefecc;
@@ -175,4 +175,8 @@ h6 {
   left: 0;
   right: 50%;
   bottom: 50%;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
 }
