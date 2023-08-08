@@ -90,7 +90,9 @@ function Footer() {
               className="w-full py-[10px] px-[20px] bg-transparent border rounded-[3px]"
             />
             <label className="absolute left-[15px] top-[11px]">Email</label>
-            <button className="absolute right-[15px] top-[7px]" type="submit">
+            <button
+              className="absolute right-[15px] top-[8px] w-[27px] h-auto"
+              type="submit">
               <img
                 className="w-full h-auto"
                 src="/assets/icons/submit.png"
