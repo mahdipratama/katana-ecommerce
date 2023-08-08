@@ -7,9 +7,9 @@ import CustomKatana from '@/components/CustomKatana';
 import Banner from '@/components/Banner';
 import AnimeKatana from '@/components/AnimeKatana';
 import TantoKatana from '@/components/TantoKatana';
-import Footer from '@/components/Footer';
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
   const getAllProducts = async () => {
@@ -21,6 +21,7 @@ export default function Home() {
       const data = await res.json();
 
       setProducts(data);
+      setIsLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -37,11 +38,11 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Featured products={products} />
-      <CustomKatana products={products} />
+      <Featured products={products} isLoading={isLoading} />
+      <CustomKatana products={products} isLoading={isLoading} />
       <Banner />
-      <AnimeKatana products={products} />
-      <TantoKatana products={products} />
+      <AnimeKatana products={products} isLoading={isLoading} />
+      <TantoKatana products={products} isLoading={isLoading} />
     </>
   );
 }
