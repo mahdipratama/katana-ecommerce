@@ -5,7 +5,7 @@ import React from 'react';
 function Footer() {
   return (
     <footer className=" bg-primary footer">
-      <div className="layout text-accent4 text-[14px] grid grid-cols-2 gap-y-5 gap-x-8 sm:px-7">
+      <div className="layout text-accent4 text-[14px] grid grid-cols-2 ssm:grid-cols-3 lg:!grid-cols-4 ssm:place-items-center lg:!place-items-start lg:!justify-items-center xl:!grid-cols-5 gap-y-5 gap-x-8 sm:px-7">
         <div className="">
           <div className="w-[150px] ml-[-7px] mb-4">
             <img src="/assets/images/logo2.png" alt="logo" />
@@ -20,7 +20,7 @@ function Footer() {
           </p>
         </div>
 
-        <div>
+        <div className="">
           <h4 className="mb-4 mt-3 text-[16px] font-semibold text-main ">
             Helpful links
           </h4>
@@ -63,7 +63,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="ssm:place-self-start lg:!justify-self-center">
           <h4 className="mb-4 mt-3 text-[16px] font-semibold text-main ">
             Legal notes
           </h4>
@@ -77,7 +77,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-2 ssm:ml-[40px] lg:!ml-0 lg:!place-self-start xl:!col-start-5 xl:!ml-[20px]">
           <h4 className="mb-4 mt-3 text-[16px] font-semibold text-main ">
             Newsletter
           </h4>

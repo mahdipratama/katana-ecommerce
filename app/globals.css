@@ -72,7 +72,7 @@ h6 {
 }
 
 .app {
-  max-width: 1320px;
+  max-width: 1440px;
   margin-inline: auto;
   /* min-height: 100vh; */
 }
@@ -87,6 +87,10 @@ h6 {
 
 .hamburger {
   @apply z-10 mr-[-13px] sm:hidden;
+}
+
+.footer_links {
+  @apply flex flex-col items-center text-left;
 }
 
 .hamburger .ham {
