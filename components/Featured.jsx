@@ -1,7 +1,8 @@
+'use-client';
+
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import FeaturedCard from './FeaturedCard';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 // Import Swiper React component
@@ -24,15 +25,16 @@ import { useEffect, useState } from 'react';
 SwiperCore.use([Autoplay]);
 
 function Featured({ products, isLoading }) {
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [innerWidth, setInnerWidth] = useState(0);
 
   useEffect(() => {
     const resizeHandler = () => {
       setInnerWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', resizeHandler);
     resizeHandler(); // Call the handler initialy
+
+    window.addEventListener('resize', resizeHandler);
 
     return () => {
       window.removeEventListener('resize', resizeHandler);

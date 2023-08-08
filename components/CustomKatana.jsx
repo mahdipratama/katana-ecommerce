@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { useState, useEffect } from 'react';
 
-import Link from 'next/link';
 import Button from './Button';
 import Card from './Card';
+import CardSkeleton from './CardSkeleton';
 
 /* eslint-disable @next/next/no-img-element */
-function CustomKatana({ products }) {
+function CustomKatana({ products, isLoading }) {
   const customProducts = products
     .filter(product => product.category === 'custom')
     .sort(() => Math.random() - 0.5)
@@ -33,9 +34,13 @@ function CustomKatana({ products }) {
         </div>
 
         <div className="flex-1 flex flex-col flex-wrap gap-5 sm:flex-row justify-center items-center lg:gap-5">
-          {customProducts.map(product => (
-            <Card key={product._id} customProduct={product} />
-          ))}
+          {isLoading ? (
+            <CardSkeleton />
+          ) : (
+            customProducts.map(product => (
+              <Card key={product._id} customProduct={product} />
+            ))
+          )}
 
           <a href={'/products'} className="sm:basis-[300px]">
             <Button shadow>View More</Button>

@@ -174,16 +174,6 @@ h6 {
   cursor: grab;
 }
 
-.card_skeleton {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 100%;
-  padding: 0.5rem;
-  border: 1px solid grey;
-  border-radius: 3px;
-}
-
 .bg_banner {
   top: 0;
   left: 0;

@@ -2,9 +2,10 @@
 
 import Button from './Button';
 import Card from './Card';
+import CardSkeleton from './CardSkeleton';
 
 /* eslint-disable @next/next/no-img-element */
-function AnimeKatana({ products }) {
+function AnimeKatana({ products, isLoading }) {
   const animeProducts = products
     .filter(product => product.category === 'anime')
     .sort(() => Math.random() - 0.5)
@@ -32,9 +33,13 @@ function AnimeKatana({ products }) {
         </div>
 
         <div className="flex-1 flex flex-col flex-wrap gap-5 sm:flex-row justify-center items-center lg:gap-5">
-          {animeProducts.map(product => (
-            <Card key={product._id} customProduct={product} />
-          ))}
+          {isLoading ? (
+            <CardSkeleton />
+          ) : (
+            animeProducts.map(product => (
+              <Card key={product._id} customProduct={product} />
+            ))
+          )}
 
           <a href={'/products'} className="sm:basis-[300px]">
             <Button shadow>View More</Button>
