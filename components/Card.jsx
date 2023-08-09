@@ -1,9 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Button from './Button';
+import { useRouter } from 'next/navigation';
 
-function Card({ customProduct }) {
-  const { name, pictures, prices } = customProduct;
+function Card({ product }) {
+  const { name, pictures, prices } = product;
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/product?id=${product._id}`);
+  };
 
   return (
     <div
@@ -12,7 +19,9 @@ function Card({ customProduct }) {
         w-[230px] h-[310px] flex flex-col
         sm:w-[260px] sm:h-[390px] lg:w-[230px] lg:h-[300px] lg:mb-0
         ">
-      <div className="object-cover w-[100%] h-[180px] sm:h-[250px] lg:h-[165px]">
+      <div
+        className="object-cover w-[100%] h-[180px] sm:h-[250px] lg:h-[165px] cursor-pointer"
+        onClick={handleClick}>
         <img
           src={pictures[0]}
           alt="product image"
@@ -28,7 +37,11 @@ function Card({ customProduct }) {
           $ {prices?.oldPrice}
         </span>
 
-        <h4 className="text-primary text-[16px] font-medium mb-3">{name}</h4>
+        <h4
+          onClick={handleClick}
+          className="cursor-pointer text-primary text-[16px] font-medium mb-3">
+          {name}
+        </h4>
 
         <Link href={'product'}>
           <Button primary>

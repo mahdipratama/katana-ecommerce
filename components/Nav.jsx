@@ -8,7 +8,7 @@ function Nav() {
   const [activeMenu, setActiveMenu] = useState(false);
 
   return (
-    <nav className="layout flex items-center justify-between">
+    <nav className="layout_navbar flex items-center justify-between">
       <div className="logo">
         <Link href={'/'}>
           <Image

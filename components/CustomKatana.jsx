@@ -38,7 +38,7 @@ function CustomKatana({ products, isLoading }) {
             <CardSkeleton />
           ) : (
             customProducts.map(product => (
-              <Card key={product._id} customProduct={product} />
+              <Card key={product._id} product={product} />
             ))
           )}
 

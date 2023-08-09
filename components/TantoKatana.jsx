@@ -37,7 +37,7 @@ function TantoKatana({ products, isLoading }) {
             <CardSkeleton />
           ) : (
             tantoProducts.map(product => (
-              <Card key={product._id} customProduct={product} />
+              <Card key={product._id} product={product} />
             ))
           )}
 

@@ -37,7 +37,7 @@ function AnimeKatana({ products, isLoading }) {
             <CardSkeleton />
           ) : (
             animeProducts.map(product => (
-              <Card key={product._id} customProduct={product} />
+              <Card key={product._id} product={product} />
             ))
           )}
 

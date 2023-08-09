@@ -1,11 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+'use client';
+
 import React from 'react';
 import Button from './Button';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 function FeaturedCard({ featuredProduct }) {
   const { name, pictures, prices } = featuredProduct;
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/product?id=${featuredProduct._id}`);
+  };
 
   return (
     <div
@@ -14,7 +23,9 @@ function FeaturedCard({ featuredProduct }) {
         w-[230px] h-[400px] flex flex-col
         msm:w-[270px] lg:w-[300px]
         ">
-      <div className="object-cover w-[100%] h-[350px] sm:h-[250px]">
+      <div
+        onClick={handleClick}
+        className="cursor-pointer object-cover w-[100%] h-[350px] sm:h-[250px]">
         <img
           src={pictures[0]}
           alt="product image"
@@ -28,7 +39,9 @@ function FeaturedCard({ featuredProduct }) {
         </span>
         <span className="text-accent1 line-through">$ {prices.oldPrice}</span>
 
-        <h4 className="text-primary text-[16px] ssm:text-[18px] sm:text-[20px] font-semibold mb-3 mt-[-5px] tracking-wide">
+        <h4
+          onClick={handleClick}
+          className="cursor-pointer text-primary text-[16px] ssm:text-[18px] sm:text-[20px] font-semibold mb-3 mt-[-5px] tracking-wide">
           {name}
         </h4>
 

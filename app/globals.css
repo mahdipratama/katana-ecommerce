@@ -78,7 +78,11 @@ h6 {
 }
 
 .layout {
-  @apply py-7 mx-5 sm:py-10;
+  @apply py-7 mx-6 sm:py-10;
+}
+
+.layout_navbar {
+  @apply pt-5 pb-7 mx-5 sm:pt-7 sm:pb-10;
 }
 
 .heading_section {
