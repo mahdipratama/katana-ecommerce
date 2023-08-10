@@ -77,12 +77,26 @@ h6 {
   /* min-height: 100vh; */
 }
 
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
 .layout {
-  @apply py-7 mx-6 sm:py-10;
+  @apply py-7 mx-6 sm:py-10 lg:mx-12;
 }
 
 .layout_navbar {
-  @apply pt-5 pb-7 mx-5 sm:pt-7 sm:pb-10;
+  @apply pt-5 pb-7 mx-5 sm:pt-7 sm:pb-10 lg:mx-12;
 }
 
 .heading_section {
