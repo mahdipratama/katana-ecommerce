@@ -3,10 +3,11 @@
 
 import ProductImages from '@/components/ProductImages';
 import { useSearchParams } from 'next/navigation';
-import { StrictMode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@/components/Button';
 import getProduct from '@/actions/getProduct';
 import CardRelated from '@/components/CardRelated';
+import ProductPageSkeleton from '@/components/ProductPageSkeleton';
 
 function Product() {
   const [product, setProduct] = useState('');
@@ -34,14 +35,12 @@ function Product() {
   return (
     <section className="layout">
       {isLoading ? (
-        <p>Loading...</p>
+        <ProductPageSkeleton />
       ) : (
         <>
           <div className="flex flex-col items-center lg:flex-row">
             <div className="mb-4 lg:!flex-1">
-              <StrictMode>
-                <ProductImages key={productId} images={product.pictures} />
-              </StrictMode>
+              <ProductImages key={productId} images={product.pictures} />
             </div>
 
             <div className="lg:ml-8 lg:!flex-1 max-w-[603px]">

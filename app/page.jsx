@@ -16,7 +16,7 @@ export default function Home() {
     try {
       const res = await fetch('/api/products');
 
-      if (!res) throw new Error("Could'nt get the data");
+      if (!res) throw new Error("Couldn't get the data");
 
       const data = await res.json();
 

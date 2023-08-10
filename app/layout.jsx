@@ -12,13 +12,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="overflow-x-hidden">
-        <main className="app">
-          <Nav />
-          <SkeletonTheme baseColor="#f4f4f4" highlightColor="#ecebeb">
+        <SkeletonTheme baseColor="#f4f4f4" highlightColor="#ecebeb">
+          <main className="app">
+            <Nav />
             {children}
-          </SkeletonTheme>
-          <Footer />
-        </main>
+            <Footer />
+          </main>
+        </SkeletonTheme>
       </body>
     </html>
   );
