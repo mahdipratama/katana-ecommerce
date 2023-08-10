@@ -1,8 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function ProductImages({ images }) {
   const [activeImage, setActiveImage] = useState(images?.[0]);
+
+  // Reset activeImage when image prop changes (new product)
+  useEffect(() => {
+    setActiveImage(images?.[0]);
+  }, [images]);
 
   return (
     <>
