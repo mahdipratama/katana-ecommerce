@@ -17,7 +17,7 @@ function Card({ product }) {
       className="
       bg-white overflow-hidden shadow-small rounded-[3px]
         w-[230px] h-[310px] flex flex-col
-        sm:w-[260px] sm:h-[390px] lg:w-[230px] lg:h-[300px] lg:mb-0
+        sm:w-[260px] sm:h-[390px] lg:w-[218px] lg:h-[300px] lg:mb-0
         ">
       <div
         className="object-cover w-[100%] h-[180px] sm:h-[250px] lg:h-[165px] cursor-pointer"

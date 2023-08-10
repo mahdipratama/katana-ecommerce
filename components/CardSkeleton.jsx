@@ -6,7 +6,7 @@ function CardSkeleton() {
     .map((_, i) => (
       <div
         key={i}
-        className="border w-[230px] h-[310px] flex flex-col sm:w-[260px] sm:h-[390px] lg:w-[230px] lg:h-[300px] lg:mb-0">
+        className="border w-[230px] h-[310px] flex flex-col sm:w-[260px] sm:h-[390px] lg:w-[218px] lg:h-[300px] lg:mb-0">
         <div className="w-[100%] h-[180px] sm:h-[250px] lg:h-[165px]">
           <Skeleton width="100%" height="100%" />
         </div>
