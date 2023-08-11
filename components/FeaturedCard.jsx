@@ -6,6 +6,7 @@ import React, { useContext } from 'react';
 import Button from './Button';
 import { useRouter } from 'next/navigation';
 import ProductsContext from '@/app/context/ProductsContext';
+import { toast } from 'react-hot-toast';
 
 function FeaturedCard({ featuredProduct }) {
   const { setSelectedProducts } = useContext(ProductsContext);
@@ -20,6 +21,7 @@ function FeaturedCard({ featuredProduct }) {
 
   const addProduct = () => {
     setSelectedProducts(prev => [...prev, _id]);
+    toast.success('Item added to cart.');
   };
 
   return (

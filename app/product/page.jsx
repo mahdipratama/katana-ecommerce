@@ -9,6 +9,7 @@ import getProduct from '@/actions/getProduct';
 import CardRelated from '@/components/CardRelated';
 import ProductPageSkeleton from '@/components/ProductPageSkeleton';
 import ProductsContext from '../context/ProductsContext';
+import { toast } from 'react-hot-toast';
 
 function Product() {
   const [product, setProduct] = useState('');
@@ -37,6 +38,7 @@ function Product() {
 
   const addProduct = () => {
     setSelectedProducts(prev => [...prev, product._id]);
+    toast.success('Item added to cart.');
   };
 
   return (

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
 import getProduct from '@/actions/getProduct';
 import ProductsContext from '@/app/context/ProductsContext';
+import { toast } from 'react-hot-toast';
 
 function CardRelated({ productId }) {
   const [product, setProduct] = useState('');
@@ -32,6 +33,7 @@ function CardRelated({ productId }) {
 
   const addProduct = () => {
     setSelectedProducts(prev => [...prev, product._id]);
+    toast.success('Item added to cart.');
   };
 
   return (
