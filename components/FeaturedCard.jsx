@@ -2,18 +2,24 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from './Button';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import ProductsContext from '@/app/context/ProductsContext';
 
 function FeaturedCard({ featuredProduct }) {
-  const { name, pictures, prices } = featuredProduct;
+  const { setSelectedProducts } = useContext(ProductsContext);
+
+  const { name, pictures, prices, _id } = featuredProduct;
 
   const router = useRouter();
 
   const handleClick = () => {
     router.push(`/product?id=${featuredProduct._id}`);
+  };
+
+  const addProduct = () => {
+    setSelectedProducts(prev => [...prev, _id]);
   };
 
   return (
@@ -45,18 +51,16 @@ function FeaturedCard({ featuredProduct }) {
           {name}
         </h4>
 
-        <Link href={'product'}>
-          <Button primary>
-            Add to cart{' '}
-            <span className="ml-2">
-              <img
-                className="w-[20px] h-[20px]"
-                src="/assets/icons/cart.png"
-                alt="cart icon"
-              />
-            </span>
-          </Button>
-        </Link>
+        <Button primary onClick={addProduct}>
+          Add to cart{' '}
+          <span className="ml-2">
+            <img
+              className="w-[20px] h-[20px]"
+              src="/assets/icons/cart.png"
+              alt="cart icon"
+            />
+          </span>
+        </Button>
       </div>
     </div>
   );

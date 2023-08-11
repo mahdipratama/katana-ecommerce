@@ -3,15 +3,18 @@
 
 import ProductImages from '@/components/ProductImages';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Button from '@/components/Button';
 import getProduct from '@/actions/getProduct';
 import CardRelated from '@/components/CardRelated';
 import ProductPageSkeleton from '@/components/ProductPageSkeleton';
+import ProductsContext from '../context/ProductsContext';
 
 function Product() {
   const [product, setProduct] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+
+  const { setSelectedProducts } = useContext(ProductsContext);
 
   const searchParams = useSearchParams();
   const productId = searchParams.get('id');
@@ -31,6 +34,10 @@ function Product() {
 
     if (productId) fetchProduct();
   }, [productId]);
+
+  const addProduct = () => {
+    setSelectedProducts(prev => [...prev, product._id]);
+  };
 
   return (
     <section className="layout">
@@ -77,7 +84,7 @@ function Product() {
                 </p>
               </div>
               <div className="w-[200px] h-[40px] mt-4">
-                <Button primary>
+                <Button primary onClick={addProduct}>
                   Add to cart{' '}
                   <span className="ml-2">
                     <img

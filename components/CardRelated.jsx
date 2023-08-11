@@ -2,11 +2,13 @@
 import Link from 'next/link';
 import Button from './Button';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import getProduct from '@/actions/getProduct';
+import ProductsContext from '@/app/context/ProductsContext';
 
 function CardRelated({ productId }) {
   const [product, setProduct] = useState('');
+  const { setSelectedProducts } = useContext(ProductsContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -26,6 +28,10 @@ function CardRelated({ productId }) {
 
   const handleClick = () => {
     router.push(`/product?id=${product._id}`);
+  };
+
+  const addProduct = () => {
+    setSelectedProducts(prev => [...prev, product._id]);
   };
 
   return (
@@ -61,18 +67,16 @@ function CardRelated({ productId }) {
           {product?.name}
         </h4>
 
-        <Link href={'product'}>
-          <Button primary>
-            Add to cart{' '}
-            <span className="ml-2">
-              <img
-                className="w-[20px] h-[20px]"
-                src="/assets/icons/cart.png"
-                alt="cart icon"
-              />
-            </span>
-          </Button>
-        </Link>
+        <Button primary onClick={addProduct}>
+          Add to cart{' '}
+          <span className="ml-2">
+            <img
+              className="w-[20px] h-[20px]"
+              src="/assets/icons/cart.png"
+              alt="cart icon"
+            />
+          </span>
+        </Button>
       </div>
     </div>
   );

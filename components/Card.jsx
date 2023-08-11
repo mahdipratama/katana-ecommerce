@@ -1,15 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
 import Button from './Button';
 import { useRouter } from 'next/navigation';
+import ProductsContext from '@/app/context/ProductsContext';
+import { useContext } from 'react';
 
 function Card({ product }) {
-  const { name, pictures, prices } = product;
+  const { name, pictures, prices, _id } = product;
+  const { setSelectedProducts } = useContext(ProductsContext);
 
   const router = useRouter();
 
   const handleClick = () => {
     router.push(`/product?id=${product._id}`);
+  };
+
+  const addProduct = () => {
+    setSelectedProducts(prev => [...prev, _id]);
   };
 
   return (
@@ -43,18 +49,16 @@ function Card({ product }) {
           {name}
         </h4>
 
-        <Link href={'product'}>
-          <Button primary>
-            Add to cart{' '}
-            <span className="ml-2">
-              <img
-                className="w-[20px] h-[20px]"
-                src="/assets/icons/cart.png"
-                alt="cart icon"
-              />
-            </span>
-          </Button>
-        </Link>
+        <Button primary onClick={addProduct}>
+          Add to cart{' '}
+          <span className="ml-2">
+            <img
+              className="w-[20px] h-[20px]"
+              src="/assets/icons/cart.png"
+              alt="cart icon"
+            />
+          </span>
+        </Button>
       </div>
     </div>
   );
