@@ -28,7 +28,7 @@ function CheckoutCard({
         <div
           className="flex mb-5 border-b pb-4 items-start "
           key={productInfo._id}>
-          <div className="bg-gray-100 w-24 h-max rounded-[3px] overflow-hidden shadow-small shrink-0">
+          <div className="bg-gray-100 w-[100px] h-[100px] rounded-[3px] overflow-hidden shadow-small shrink-0">
             <img
               className="w-full h-full"
               src={productInfo.pictures[0]}
@@ -92,16 +92,16 @@ function CheckoutCard({
 
       <div className="mt-4">
         <div className="flex my-3">
-          <h3 className="grow font-bold text-gray-400">Subtotal:</h3>
-          <h3>${subtotal}</h3>
+          <h3 className="grow font-bold text-primary">Subtotal:</h3>
+          <span>$ {subtotal}</span>
         </div>
         <div className="flex my-3">
-          <h3 className="grow font-bold text-gray-400">Delivery:</h3>
-          <h3>${deliveryPrice}</h3>
+          <h3 className="grow font-bold text-primary">Delivery:</h3>
+          <span>$ {deliveryPrice}</span>
         </div>
-        <div className="flex my-3 border-t pt-3 border-dashed border-emerald-500">
-          <h3 className="grow font-bold text-gray-400">Total:</h3>
-          <h3>${total}</h3>
+        <div className="flex my-3 border-t pt-3 border-dashed border-gray-300">
+          <h3 className="grow font-bold text-primary">Total:</h3>
+          <span className="font-semibold text-primary">$ {total}</span>
         </div>
       </div>
     </div>
