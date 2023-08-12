@@ -1,11 +1,12 @@
 'use client';
 
 import Nav from '@/components/Nav';
-import './globals.css';
 import Footer from '@/components/Footer';
-import { SkeletonTheme } from 'react-loading-skeleton';
 import Cart from '@/components/Cart';
+import { SkeletonTheme } from 'react-loading-skeleton';
 import { ProductContextProvider } from './context/ProductsContext';
+import { Toaster } from 'react-hot-toast';
+import './globals.css';
 
 const metadata = {
   title: 'Mr. Bushido',
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
               {children}
               <Footer />
             </main>
+            <Toaster position="bottom-center" reverseOrder={false} />
           </SkeletonTheme>
         </ProductContextProvider>
       </body>

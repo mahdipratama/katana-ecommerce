@@ -21,6 +21,7 @@ export default function Home() {
       const data = await res.json();
 
       setProducts(data);
+
       setIsLoading(false);
     } catch (err) {
       console.log(err);
@@ -32,7 +33,7 @@ export default function Home() {
   }, []);
 
   const categoriesNames = [
-    ...new Set(products.map(product => product.category)),
+    ...new Set(products?.map(product => product.category)),
   ];
 
   return (

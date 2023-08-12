@@ -16,7 +16,8 @@ function Nav() {
             alt="logo"
             width={180}
             height={180}
-            priority={true}
+            placeholder="blur"
+            blurDataURL={'/assets/images/logo.png'}
           />
         </Link>
       </div>
