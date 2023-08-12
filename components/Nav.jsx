@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import Cart from './Cart';
 
 function Nav() {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -21,6 +22,8 @@ function Nav() {
           />
         </Link>
       </div>
+
+      <Cart />
 
       <div
         onClick={() => setActiveMenu(prev => !prev)}
@@ -44,7 +47,7 @@ function Nav() {
       <div
         className={`
         wrapper_menu ${activeMenu && 'active'} bg-secondary 
-        sm:bg-main sm:static sm:ml-10`}>
+        sm:bg-main sm:static sm:ml-2 lg:ml-10`}>
         <ul
           onClick={() => setActiveMenu(false)}
           className="absolute top-[20%] left-[20%] gap-8 text-[18px] 

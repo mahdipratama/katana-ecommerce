@@ -21,7 +21,6 @@ export default function RootLayout({ children }) {
           <SkeletonTheme baseColor="#f4f4f4" highlightColor="#ecebeb">
             <main className="app">
               <Nav />
-              <Cart />
               {children}
               <Footer />
             </main>

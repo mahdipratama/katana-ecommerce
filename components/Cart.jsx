@@ -7,16 +7,18 @@ function Cart() {
   const { selectedProducts } = useContext(ProductsContext);
 
   return (
-    <div className="fixed right-4 bottom-8 bg-accent2 rounded-xl p-2 z-20">
-      <Link href={'/checkout'}>
+    <Link href={'/checkout'} className="grow flex flex-row justify-end">
+      <div className="relative flex flex-row items-start">
         <div className="w-[30px] h-[30px] relative">
-          <img src="/assets/icons/shopping-bag.png" alt="shoping cart" />
+          <img src="/assets/icons/main-cart.png" alt="shoping cart" />
         </div>
-        <span className="text-secondary text-sm font-semibold absolute right-[7px] top-[3px]">
-          {selectedProducts.length}
-        </span>
-      </Link>
-    </div>
+        <div className="bg-accent2 flex w-[25px] h-[23px] items-center justify-center rounded-full">
+          <span className="text-secondary text-[14px]">
+            {selectedProducts.length}
+          </span>
+        </div>
+      </div>
+    </Link>
   );
 }
 
