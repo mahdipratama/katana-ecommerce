@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import ProductsContext from '../context/ProductsContext';
 import getProductsChekcout from '@/actions/getProductsCheckout';
 import CheckoutCard from '@/components/CheckoutCard';
-import Button from '@/components/Button';
+import CartEmpty from '@/components/CartEmpty';
 
 function CheckoutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
@@ -62,7 +62,7 @@ function CheckoutPage() {
       {isLoading ? (
         <p>Loading...</p>
       ) : !productsInfos.length ? (
-        <p>no products</p>
+        <CartEmpty />
       ) : (
         <div className="flex flex-col lg:flex-row lg:gap-7 items-start">
           <CheckoutCard
