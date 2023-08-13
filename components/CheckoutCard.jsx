@@ -23,7 +23,7 @@ function CheckoutCard({
   }
   const total = subtotal + deliveryPrice;
   return (
-    <div className="basis-[70%]">
+    <div className="basis-[65%]">
       {productsInfos?.map(productInfo => (
         <div
           className="flex mb-5 border-b pb-4 items-start "
