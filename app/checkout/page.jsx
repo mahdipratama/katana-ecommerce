@@ -5,6 +5,7 @@ import ProductsContext from '../context/ProductsContext';
 import getProductsChekcout from '@/actions/getProductsCheckout';
 import CheckoutCard from '@/components/CheckoutCard';
 import CartEmpty from '@/components/CartEmpty';
+import Loading from '@/components/Loading';
 
 function CheckoutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
@@ -60,7 +61,7 @@ function CheckoutPage() {
   return (
     <section className="layout">
       {isLoading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : !productsInfos.length ? (
         <CartEmpty />
       ) : (
