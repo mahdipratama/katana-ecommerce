@@ -1,14 +1,11 @@
-'use client';
-
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import Cart from '@/components/Cart';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import { ProductContextProvider } from './context/ProductsContext';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
-const metadata = {
+export const metadata = {
   title: 'Mr. Bushido',
   description: 'Katana E-commerce',
 };
