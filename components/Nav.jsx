@@ -56,13 +56,13 @@ function Nav() {
           <Link href={'/'}>
             <li>Home</li>
           </Link>
-          <Link href={'/anime'}>
+          <Link href={'/products?category=anime'}>
             <li>Anime katana</li>
           </Link>
-          <Link href={'/custom'}>
+          <Link href={'/products?category=custom'}>
             <li>Custom katana</li>
           </Link>
-          <Link href={'/tanto'}>
+          <Link href={'/products?category=tanto'}>
             <li>Tanto</li>
           </Link>
         </ul>
