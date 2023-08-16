@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import ProductsContext from '../context/ProductsContext';
+import CartContext from '../context/CartContext';
 
 import getProductsChekcout from '@/actions/getProductsCheckout';
 import CheckoutCard from '@/components/CheckoutCard';
@@ -20,7 +20,7 @@ import {
 } from '@/lib/inputValidations';
 
 function CheckoutPage() {
-  const { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
+  const { selectedProducts, setSelectedProducts } = useContext(CartContext);
   const [productsInfos, setProductsInfos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 

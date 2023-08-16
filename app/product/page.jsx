@@ -8,7 +8,7 @@ import Button from '@/components/Button';
 import getProduct from '@/actions/getProduct';
 import CardRelated from '@/components/CardRelated';
 import ProductPageSkeleton from '@/components/ProductPageSkeleton';
-import ProductsContext from '../context/ProductsContext';
+import ProductsContext from '../context/CartContext';
 import { toast } from 'react-hot-toast';
 
 function Product() {

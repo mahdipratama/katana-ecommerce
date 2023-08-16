@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useState, useEffect } from 'react';
 
 import Button from './Button';
 import Card from './Card';

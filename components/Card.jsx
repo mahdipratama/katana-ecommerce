@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from './Button';
 import { useRouter } from 'next/navigation';
-import ProductsContext from '@/app/context/ProductsContext';
+import CartContext from '@/app/context/CartContext';
 import { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 
 function Card({ product }) {
   const { name, pictures, prices, _id } = product;
-  const { setSelectedProducts } = useContext(ProductsContext);
+  const { setSelectedProducts } = useContext(CartContext);
 
   const router = useRouter();
 

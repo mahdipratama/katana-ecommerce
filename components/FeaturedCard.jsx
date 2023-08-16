@@ -5,11 +5,11 @@
 import React, { useContext } from 'react';
 import Button from './Button';
 import { useRouter } from 'next/navigation';
-import ProductsContext from '@/app/context/ProductsContext';
+import CartContext from '@/app/context/CartContext';
 import { toast } from 'react-hot-toast';
 
 function FeaturedCard({ featuredProduct }) {
-  const { setSelectedProducts } = useContext(ProductsContext);
+  const { setSelectedProducts } = useContext(CartContext);
 
   const { name, pictures, prices, _id } = featuredProduct;
 

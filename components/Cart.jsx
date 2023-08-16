@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import ProductsContext from '@/app/context/ProductsContext';
+import CartContext from '@/app/context/CartContext';
 import Link from 'next/link';
 import { useContext } from 'react';
 
 function Cart() {
-  const { selectedProducts } = useContext(ProductsContext);
+  const { selectedProducts } = useContext(CartContext);
 
   return (
     <Link href={'/checkout'} className="grow flex flex-row justify-end">
