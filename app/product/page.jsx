@@ -4,18 +4,20 @@
 import ProductImages from '@/components/ProductImages';
 import { useSearchParams } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
-import Button from '@/components/Button';
+import CartContext from '../context/CartContext';
+import ProductsContext from '../context/ProductsContext';
 import getProduct from '@/actions/getProduct';
+
 import CardRelated from '@/components/CardRelated';
+import Button from '@/components/Button';
 import ProductPageSkeleton from '@/components/ProductPageSkeleton';
-import ProductsContext from '../context/CartContext';
 import { toast } from 'react-hot-toast';
 
 function Product() {
   const [product, setProduct] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  const { setSelectedProducts } = useContext(ProductsContext);
+  const { setSelectedProducts } = useContext(CartContext);
 
   const searchParams = useSearchParams();
   const productId = searchParams.get('id');

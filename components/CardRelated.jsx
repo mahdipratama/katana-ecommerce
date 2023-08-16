@@ -1,15 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
 import Button from './Button';
 import { useRouter } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
 import getProduct from '@/actions/getProduct';
-import ProductsContext from '@/app/context/ProductsContext';
+import CartContext from '@/app/context/CartContext';
 import { toast } from 'react-hot-toast';
 
 function CardRelated({ productId }) {
   const [product, setProduct] = useState('');
-  const { setSelectedProducts } = useContext(ProductsContext);
+  const { setSelectedProducts } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
