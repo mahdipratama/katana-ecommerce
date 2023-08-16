@@ -1,11 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
+import ProductsContext from '@/app/context/ProductsContext';
+import { useContext } from 'react';
 
 import Button from './Button';
 import Card from './Card';
 import CardSkeleton from './CardSkeleton';
 
 /* eslint-disable @next/next/no-img-element */
-function CustomKatana({ products, isLoading }) {
+function CustomKatana() {
+  const { products, isLoading } = useContext(ProductsContext);
+
   const customProducts = products
     .filter(product => product.category === 'custom')
     .sort(() => Math.random() - 0.5)

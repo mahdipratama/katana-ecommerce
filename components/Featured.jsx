@@ -2,6 +2,7 @@
 
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+import ProductsContext from '@/app/context/ProductsContext';
 import FeaturedCard from './FeaturedCard';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -20,11 +21,13 @@ import 'swiper/css/pagination';
 // import required modules
 import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
 import FeaturedCardSkeleton from './FeaturedCardSkeleton';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 SwiperCore.use([Autoplay]);
 
-function Featured({ products, isLoading }) {
+function Featured() {
+  const { products, isLoading } = useContext(ProductsContext);
+
   const [innerWidth, setInnerWidth] = useState(0);
 
   useEffect(() => {
@@ -50,7 +53,7 @@ function Featured({ products, isLoading }) {
   };
 
   // Filtered Products
-  const featuredProducts = products.filter(
+  const featuredProducts = products?.filter(
     product => product.isFeatured === true
   );
 
