@@ -37,6 +37,7 @@ export function ProductsContextProvider({ children }) {
       value={{
         products,
         isLoading,
+        categoriesNames,
       }}>
       {children}
     </ProductsContext.Provider>

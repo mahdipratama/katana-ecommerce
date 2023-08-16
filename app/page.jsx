@@ -1,5 +1,4 @@
 'use client';
-import { useState, useEffect } from 'react';
 
 import Featured from '@/components/Featured';
 import Hero from '@/components/Hero';

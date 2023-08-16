@@ -28,7 +28,7 @@ function Hero() {
           With razor-sharp precision and a legacy that echoes through centuries,
           these swords embody the essence of discipline and strength.
         </p>
-        <Link href={'/'} className="lg:ml-1">
+        <Link href={'/products'} className="lg:ml-1">
           <Button secondary>shop now</Button>
         </Link>
       </div>
