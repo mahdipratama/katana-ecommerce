@@ -28,7 +28,7 @@ function Card({ product }) {
         sm:w-[260px] sm:h-[390px] lg:w-[218px] lg:h-[300px] lg:mb-0
         ">
       <div
-        className="object-cover w-[100%] h-[100px] sm:h-[150px] lg:h-[165px] cursor-pointer"
+        className="object-cover w-[100%] h-[100px] sm:h-[250px] lg:h-[165px] cursor-pointer"
         onClick={handleClick}>
         <img
           src={pictures[0]}
@@ -47,7 +47,7 @@ function Card({ product }) {
 
         <h4
           onClick={handleClick}
-          className="cursor-pointer text-primary text-[13px] sm:text-[16px] font-medium mb-3">
+          className="cursor-pointer text-primary text-[13px] sm:text-[16px] font-medium mb-3 leading-[1]">
           {name}
         </h4>
 
