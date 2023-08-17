@@ -36,7 +36,7 @@ function TantoKatana() {
           />
         </div>
 
-        <div className="flex-1 flex flex-col flex-wrap gap-5 sm:flex-row justify-center items-center lg:gap-5">
+        <div className="flex-1 flex flex-wrap gap-5 sm:flex-row justify-center items-center lg:gap-5">
           {isLoading ? (
             <CardSkeleton />
           ) : (
@@ -45,7 +45,7 @@ function TantoKatana() {
             ))
           )}
 
-          <a href={'/products'} className="sm:basis-[300px]">
+          <a href={'/products?category=tanto'} className="sm:basis-[300px]">
             <Button shadow>View More</Button>
           </a>
         </div>

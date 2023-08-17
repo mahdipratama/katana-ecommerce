@@ -5,7 +5,7 @@ const Button = ({ children, primary, secondary, shadow, ...rest }) => {
     rest.className,
     'flex items-center px-3 py-1.5 rounded-[3px]',
     {
-      'bg-primary text-white text-[16px] font-medium w-full inline-flex justify-center py-2':
+      'bg-primary text-white text-[13px] sm:text-[16px] font-medium w-full inline-flex justify-center py-1 sm:py-2':
         primary && !shadow,
       'bg-secondary text-white px-[32px] py-[12px] uppercase tracking-[5px]':
         secondary && !shadow,

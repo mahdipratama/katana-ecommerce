@@ -18,7 +18,7 @@ function CartEmpty() {
           saving your favorite items.
         </p>
         <Button shadow>
-          <Link href={'/'}> Add Now </Link>
+          <Link href={'/products'}> Add Now </Link>
         </Button>
       </div>
     </div>

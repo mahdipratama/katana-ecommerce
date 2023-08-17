@@ -24,11 +24,11 @@ function Card({ product }) {
     <div
       className="
       bg-white overflow-hidden shadow-small rounded-[3px]
-        w-[230px] h-[310px] flex flex-col
+        w-[146px] h-[210px] flex flex-col
         sm:w-[260px] sm:h-[390px] lg:w-[218px] lg:h-[300px] lg:mb-0
         ">
       <div
-        className="object-cover w-[100%] h-[180px] sm:h-[250px] lg:h-[165px] cursor-pointer"
+        className="object-cover w-[100%] h-[100px] sm:h-[150px] lg:h-[165px] cursor-pointer"
         onClick={handleClick}>
         <img
           src={pictures[0]}
@@ -37,17 +37,17 @@ function Card({ product }) {
         />
       </div>
 
-      <div className="pb-[16px] py-[10px] px-[20px] flex-1">
-        <span className="mr-3 text-accent1 text-[18px] font-semibold">
+      <div className="pb-[16px] py-[10px] px-[14px] sm:px-[20px] flex-1">
+        <span className="mr-3 text-accent1 text-[16px] sm:text-[18px] font-semibold">
           $ {prices?.discPrice}
         </span>
-        <span className="text-accent1 line-through text-[14px]">
+        <span className="text-accent1 line-through text-[12px] sm:text-[14px]">
           $ {prices?.oldPrice}
         </span>
 
         <h4
           onClick={handleClick}
-          className="cursor-pointer text-primary text-[16px] font-medium mb-3">
+          className="cursor-pointer text-primary text-[13px] sm:text-[16px] font-medium mb-3">
           {name}
         </h4>
 
@@ -55,7 +55,7 @@ function Card({ product }) {
           Add to cart{' '}
           <span className="ml-2">
             <img
-              className="w-[20px] h-[20px]"
+              className="w-[12px] h-[12px] sm:w-[20px] sm:h-[20px]"
               src="/assets/icons/cart.png"
               alt="cart icon"
             />
