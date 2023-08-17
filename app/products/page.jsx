@@ -93,24 +93,28 @@ function Products() {
 
   return (
     <section className="layout">
-      <div>
-        <h2 className="text-[24px] text-center font-semibold lg:text-[28px] border-b pb-2 mb-6">
-          <span className="inline-block mb-[5px]">
-            <img src="/assets/icons/line.png" aria-hidden />
-          </span>
-          All Products
-          <span className="inline-block mb-[5px]">
-            <img src="/assets/icons/line.png" aria-hidden />
-          </span>
-        </h2>
-      </div>
+      <h2 className="text-[24px] text-center font-semibold lg:text-[28px] border-b pb-2 mb-6">
+        <span className="inline-block mb-[5px]">
+          <img src="/assets/icons/line.png" aria-hidden />
+        </span>
+        All Products
+        <span className="inline-block mb-[5px]">
+          <img src="/assets/icons/line.png" aria-hidden />
+        </span>
+      </h2>
+
+      <div
+        className={`z-10 inset-0 bg-[#00000069] backdrop-blur-sm ${
+          isOpen ? 'fixed' : 'hidden'
+        }`}
+        aria-hidden></div>
 
       {isLoading ? (
         <Loading />
       ) : (
         <div className="relative ">
           <div
-            className={`z-10 ease-out duration-200  ${
+            className={`z-30 ease-out duration-200  ${
               isOpen
                 ? 'fixed top-1 left-[10px]'
                 : 'absolute top-[-48px] left-[-2px]'
@@ -133,7 +137,7 @@ function Products() {
           <div
             className={`fixed ease-out duration-200 ${
               isOpen
-                ? 'left-[4px] top-0 bg-slate-100 w-[80%] h-[100%] px-5 py-10 '
+                ? 'left-0 top-0 bg-slate-100 w-[80%] h-[100%] px-5 py-10 z-20'
                 : 'left-[-100%]'
             } `}>
             <div className="border-b pb-3 mb-3">
