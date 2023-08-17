@@ -5,6 +5,7 @@
 import ProductsContext from '../context/ProductsContext';
 import { useContext, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Loading from '@/components/Loading';
 
 const categoryMap = {
   anime: ['anime'],
@@ -13,20 +14,19 @@ const categoryMap = {
 };
 
 function Products() {
-  const { products, categoriesNames } = useContext(ProductsContext);
+  const { products, categoriesNames, isLoading } = useContext(ProductsContext);
 
   const categoryParams = useSearchParams();
   const category = categoryParams.get('category');
 
-  const initialCheckedCategory = categoryMap[category] || [];
+  const initialCategory = categoryMap[category] || [];
 
   const [currentProducts, setCurrentProducts] = useState(products || []);
-  const [checkedCategory, setCheckedCategory] = useState(
-    initialCheckedCategory
-  );
+  const [checkedCategory, setCheckedCategory] = useState(initialCategory);
   const [priceRange, setPriceRange] = useState({ min: 100, max: 450 });
   const [sortingOrder, setSortingOrder] = useState('none');
   const [initialRender, setInitialRender] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     // Filter products
@@ -85,6 +85,12 @@ function Products() {
     });
   };
 
+  const toggleFilters = () => {
+    setIsOpen(prev => !prev);
+  };
+
+  console.log(isOpen);
+
   return (
     <section className="layout">
       <div>
@@ -98,74 +104,107 @@ function Products() {
           </span>
         </h2>
       </div>
-      <div className="flex gap-10 items-start relative ">
-        <div className="sticky left-0 top-[80px]">
-          <div className="border-b pb-3 mb-3">
-            <h3 className="font-semibold text-paragraphColor">
-              Filter by category
-            </h3>
-            <ul>
-              {categoriesNames.map((category, i) => (
-                <li key={category} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    id={category}
-                    name={category}
-                    value={category}
-                    onChange={() => toggleChecbox(category)}
-                    checked={checkedCategory.includes(category)}
-                    className="inline-block"
-                  />
-                  <label
-                    htmlFor={category}
-                    className="capitalize text-paragraphColor text-[14px]">
-                    {category}
-                  </label>
-                </li>
-              ))}
-            </ul>
+
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="relative ">
+          <div
+            className={`z-10 ease-out duration-200  ${
+              isOpen
+                ? 'fixed top-1 left-[10px]'
+                : 'absolute top-[-48px] left-[-2px]'
+            } flex items-center gap-1 cursor-pointer lg:hidden`}
+            onClick={toggleFilters}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke={isOpen ? '#d81f27' : '#40444d'}
+              className="w-5 h-5">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+              />
+            </svg>
+          </div>
+          <div
+            className={`fixed ease-out duration-200 ${
+              isOpen
+                ? 'left-[4px] top-0 bg-slate-100 w-[80%] h-[100%] px-5 py-10 '
+                : 'left-[-100%]'
+            } `}>
+            <div className="border-b pb-3 mb-3">
+              <h3 className="font-semibold text-paragraphColor">
+                Filter by category
+              </h3>
+              <ul>
+                {categoriesNames.map((category, i) => (
+                  <li key={category} className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id={category}
+                      name={category}
+                      value={category}
+                      onChange={() => toggleChecbox(category)}
+                      checked={checkedCategory.includes(category)}
+                      className="inline-block"
+                    />
+                    <label
+                      htmlFor={category}
+                      className="capitalize text-paragraphColor text-[14px]">
+                      {category}
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border-b pb-3 mb-3">
+              <h3 className="font-semibold text-paragraphColor">
+                Filter by price
+              </h3>
+              <label
+                htmlFor="minPrice"
+                className=" text-paragraphColor text-[14px]">
+                Max price: {priceRange.max}
+              </label>
+              <input
+                type="range"
+                id="maxPrice"
+                name="max"
+                value={priceRange.max}
+                onChange={handlePriceChange}
+                min="100"
+                max="450"
+              />
+            </div>
+
+            <div className="border-b pb-3 ">
+              <h3 className=" font-semibold text-paragraphColor">
+                Sort by price
+              </h3>
+              <span
+                className="text-paragraphColor text-[14px] text-normal ml-[2px] cursor-pointer hover:underline"
+                onClick={toggleSortingOrder}>
+                {sortingOrder === 'asc'
+                  ? 'Lowest - Highest'
+                  : 'Highest - Lowest '}
+              </span>
+            </div>
           </div>
 
-          <div className="border-b pb-3 mb-3">
-            <h3 className="font-semibold text-paragraphColor">
-              Filter by price
-            </h3>
-            <label
-              htmlFor="minPrice"
-              className=" text-paragraphColor text-[14px]">
-              Max price: {priceRange.max}
-            </label>
-            <input
-              type="range"
-              id="maxPrice"
-              name="max"
-              value={priceRange.max}
-              onChange={handlePriceChange}
-              min="100"
-              max="450"
-            />
-          </div>
-
-          <div className="border-b pb-3 mb-3">
-            <h3 className="font-semibold text-paragraphColor">Sort by price</h3>
-            <span
-              className="text-paragraphColor text-[14px] text-normal ml-[2px] cursor-pointer hover:underline"
-              onClick={toggleSortingOrder}>
-              {sortingOrder === 'asc'
-                ? 'Lowest - Highest'
-                : 'Highest - Lowest '}
-            </span>
+          <div className="products">
+            {currentProducts.map(product => (
+              <p key={product._id}>
+                {product.name} : <span>{product.prices.discPrice}</span>
+              </p>
+            ))}
           </div>
         </div>
-
-        <div className="right">
-          {currentProducts.map(product => (
-            <p key={product._id}>
-              {product.name} : <span>{product.prices.discPrice}</span>
-            </p>
-          ))}
-        </div>
-      </div>
+      )}
     </section>
   );
 }
