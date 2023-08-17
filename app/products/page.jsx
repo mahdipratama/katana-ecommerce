@@ -6,6 +6,7 @@ import ProductsContext from '../context/ProductsContext';
 import { useContext, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Loading from '@/components/Loading';
+import Card from '@/components/Card';
 
 const categoryMap = {
   anime: ['anime'],
@@ -89,8 +90,6 @@ function Products() {
     setIsOpen(prev => !prev);
   };
 
-  console.log(isOpen);
-
   return (
     <section className="layout">
       <h2 className="text-[24px] text-center font-semibold lg:text-[28px] border-b pb-2 mb-6">
@@ -112,7 +111,7 @@ function Products() {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="relative ">
+        <div className="relative lg:flex lg:gap-10">
           <div
             className={`z-30 ease-out duration-200  ${
               isOpen
@@ -135,7 +134,7 @@ function Products() {
             </svg>
           </div>
           <div
-            className={`fixed ease-out duration-200 ${
+            className={`fixed lg:sticky lg:top-[10%] lg:self-start ease-out duration-200 ${
               isOpen
                 ? 'left-0 top-0 bg-slate-100 w-[80%] h-[100%] px-5 py-10 z-20'
                 : 'left-[-100%]'
@@ -200,11 +199,9 @@ function Products() {
             </div>
           </div>
 
-          <div className="products">
+          <div className="flex flex-wrap gap-3 justify-evenly sm:gap-y-10">
             {currentProducts.map(product => (
-              <p key={product._id}>
-                {product.name} : <span>{product.prices.discPrice}</span>
-              </p>
+              <Card key={product._id} product={product} />
             ))}
           </div>
         </div>
