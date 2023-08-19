@@ -11,7 +11,6 @@ import Loading from '@/components/Loading';
 import Input from '@/components/Input';
 
 import { loadStripe } from '@stripe/stripe-js';
-import Stripe from 'stripe';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_API_KEY);
 
@@ -28,6 +27,7 @@ function CheckoutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(CartContext);
   const [productsInfos, setProductsInfos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPay, setIsPay] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const methods = useForm();
@@ -61,6 +61,8 @@ function CheckoutPage() {
     const stripe = await loadStripe(STRIPE_PK);
 
     try {
+      setIsPay(true);
+
       const response = await fetch('/api/payment', {
         method: 'POST',
         body: JSON.stringify({
@@ -85,7 +87,8 @@ function CheckoutPage() {
     } catch (err) {
       console.error(err);
     } finally {
-      setIsLoading(false);
+      setIsPay(false);
+      setSelectedProducts([]);
     }
   };
 
@@ -111,8 +114,6 @@ function CheckoutPage() {
   };
 
   // TODO
-  // Clear the cart when payment is done
-  // Disabled button when payment is loading
   // Direct to the Thanks page when payment is success
 
   return (
@@ -153,8 +154,12 @@ function CheckoutPage() {
                     value: selectedProducts.join(','),
                   })}
                 />
-                <button className="bg-secondary text-white font-semibold px-5 py-2 w-full rounded-[3px] mt-6 ">
-                  Check Out
+                <button
+                  disabled={isPay}
+                  className={`bg-secondary text-white font-semibold px-5 py-2 w-full rounded-[3px] mt-6  ${
+                    isPay ? 'cursor-not-allowed opacity-75' : ''
+                  } `}>
+                  {isPay ? 'Checkout...' : 'Check Out'}
                 </button>
               </form>
             </FormProvider>
