@@ -111,7 +111,7 @@ function Products() {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="relative lg:flex lg:gap-10">
+        <div className="relative lg:flex lg:gap-8">
           <div
             className={`z-30 ease-out duration-200  ${
               isOpen
@@ -134,7 +134,7 @@ function Products() {
             </svg>
           </div>
           <div
-            className={`fixed lg:sticky lg:top-[10%] lg:self-start ease-out duration-200 ${
+            className={`fixed lg:sticky lg:top-[10%] lg:self-start lg:basis-[15%] ease-out duration-200 ${
               isOpen
                 ? 'left-0 top-0 bg-slate-100 w-[80%] h-[100%] px-5 py-10 z-20'
                 : 'left-[-100%]'
@@ -199,7 +199,7 @@ function Products() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-3 justify-evenly sm:gap-y-10">
+          <div className="flex flex-wrap gap-5 justify-evenly sm:gap-y-10 lg:basis-[85%]">
             {currentProducts.map(product => (
               <Card key={product._id} product={product} />
             ))}

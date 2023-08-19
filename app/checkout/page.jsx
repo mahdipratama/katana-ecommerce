@@ -10,6 +10,11 @@ import CartEmpty from '@/components/CartEmpty';
 import Loading from '@/components/Loading';
 import Input from '@/components/Input';
 
+import { loadStripe } from '@stripe/stripe-js';
+import Stripe from 'stripe';
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_API_KEY);
+
 import {
   name_validation,
   email_validation,
@@ -23,9 +28,10 @@ function CheckoutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(CartContext);
   const [productsInfos, setProductsInfos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [success, setSuccess] = useState(false);
 
   const methods = useForm();
-  const [success, setSuccess] = useState(false);
+  const { register } = methods;
 
   useEffect(() => {
     const uniqIds = [...new Set(selectedProducts)];
@@ -44,6 +50,44 @@ function CheckoutPage() {
 
     if (selectedProducts) fetchProducts();
   }, [selectedProducts]);
+
+  // Checkout
+  const checkoutPayment = async (data, e) => {
+    e.preventDefault();
+
+    const checkoutData = data;
+
+    const STRIPE_PK = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+    const stripe = await loadStripe(STRIPE_PK);
+
+    try {
+      const response = await fetch('/api/payment', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: checkoutData.name,
+          email: checkoutData.email,
+          city: checkoutData.city,
+          postalCode: checkoutData.postal,
+          address: checkoutData.address,
+          country: checkoutData.country,
+          products: checkoutData.products,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) throw new Error("Couldn't POST any request");
+
+      const data = await response.json();
+      const sessionId = data.id;
+      stripe?.redirectToCheckout({ sessionId });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // Add more product
   const increaseProduct = id => {
@@ -66,14 +110,6 @@ function CheckoutPage() {
     setSelectedProducts(updatedProducts);
   };
 
-  // Form submit
-  const onSubmit = methods.handleSubmit(data => {
-    console.log(data);
-
-    methods.reset();
-    setSuccess(true);
-  });
-
   return (
     <section className="layout">
       {isLoading ? (
@@ -94,7 +130,7 @@ function CheckoutPage() {
             <h2 className="font-bold text-[20px] mb-5 ">Order Information</h2>
             <FormProvider {...methods}>
               <form
-                onSubmit={e => e.preventDefault()}
+                onSubmit={methods.handleSubmit(checkoutPayment)}
                 noValidate
                 autoComplete="off">
                 <Input {...name_validation} />
@@ -105,10 +141,14 @@ function CheckoutPage() {
                 </div>
                 <Input {...address_validation} />
                 <Input {...country_validation} />
-
-                <button
-                  onClick={onSubmit}
-                  className="bg-secondary text-white font-semibold px-5 py-2 w-full rounded-[3px] mt-6 ">
+                <input
+                  type="hidden"
+                  name="products"
+                  {...register('products', {
+                    value: selectedProducts.join(','),
+                  })}
+                />
+                <button className="bg-secondary text-white font-semibold px-5 py-2 w-full rounded-[3px] mt-6 ">
                   Check Out
                 </button>
               </form>
