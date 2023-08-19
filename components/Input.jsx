@@ -38,8 +38,8 @@ function Input({ name, label, type, id, placeholder, validation }) {
   const isInvalid = isFormInvalid(inputErrors);
 
   return (
-    <div className="flex flex-col w-full gap-2">
-      <div>
+    <div className="flex flex-col w-full gap-1 ">
+      <div className="min-h-[20px]">
         <label className="hidden" htmlFor={id}>
           {label}
         </label>

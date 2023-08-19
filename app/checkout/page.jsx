@@ -110,6 +110,11 @@ function CheckoutPage() {
     setSelectedProducts(updatedProducts);
   };
 
+  // TODO
+  // Clear the cart when payment is done
+  // Disabled button when payment is loading
+  // Direct to the Thanks page when payment is success
+
   return (
     <section className="layout">
       {isLoading ? (
