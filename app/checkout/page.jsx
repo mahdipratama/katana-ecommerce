@@ -12,8 +12,6 @@ import Input from '@/components/Input';
 
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_API_KEY);
-
 import {
   name_validation,
   email_validation,
@@ -28,11 +26,11 @@ function CheckoutPage() {
   const [productsInfos, setProductsInfos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isPay, setIsPay] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const methods = useForm();
   const { register } = methods;
 
+  // Render Unique Products
   useEffect(() => {
     const uniqIds = [...new Set(selectedProducts)];
 
@@ -88,11 +86,10 @@ function CheckoutPage() {
       console.error(err);
     } finally {
       setIsPay(false);
-      setSelectedProducts([]);
     }
   };
 
-  // Add more product
+  // Increase product
   const increaseProduct = id => {
     setSelectedProducts(prev => [...prev, id]);
   };
@@ -112,9 +109,6 @@ function CheckoutPage() {
     const updatedProducts = selectedProducts.filter(id => id !== productId);
     setSelectedProducts(updatedProducts);
   };
-
-  // TODO
-  // Direct to the Thanks page when payment is success
 
   return (
     <section className="layout">

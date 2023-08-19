@@ -11,7 +11,7 @@ export async function POST(request) {
   const body = await request.json();
   const origin = request.headers.get('origin') || 'http://localhost:3000';
 
-  const { name, email, city, postal, address, country, products, total } = body;
+  const { name, email, city, postal, address, country, products } = body;
   const productsIds = products.split(',');
   const uniqueIds = [...new Set(productsIds)];
   const productsInfo = await Product.find({ _id: { $in: uniqueIds } }).exec();
@@ -27,7 +27,7 @@ export async function POST(request) {
       price_data: {
         currency: 'USD',
         product_data: { name: product.name },
-        unit_amount: product.price * 100,
+        unit_amount: parseInt(product.price) * 100,
       },
     });
   });

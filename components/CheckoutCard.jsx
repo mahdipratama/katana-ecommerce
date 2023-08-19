@@ -9,7 +9,7 @@ function CheckoutCard({
   selectedProducts,
 }) {
   // Total Price
-  const deliveryPrice = 5;
+  const deliveryPrice = 0;
   let subtotal = 0;
 
   if (selectedProducts?.length) {
@@ -97,7 +97,7 @@ function CheckoutCard({
         </div>
         <div className="flex my-3">
           <h3 className="grow font-bold text-primary">Delivery:</h3>
-          <span>$ {deliveryPrice}</span>
+          <span className="line-through">$ {deliveryPrice}</span>
         </div>
         <div className="flex my-3 border-t pt-3 border-dashed border-gray-300">
           <h3 className="grow font-bold text-primary">Total:</h3>
