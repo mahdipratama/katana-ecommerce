@@ -1,6 +1,6 @@
 const getProductsChekcout = async productsId => {
   try {
-    const res = await fetch(`/api/checkout?ids=${productsId.join(',')}`);
+    const res = await fetch(`/api/checkout?ids=${productsId}`);
 
     if (!res.ok) throw new Error(`Request failed with status: ${res.status}`);
 

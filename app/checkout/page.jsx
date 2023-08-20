@@ -31,11 +31,12 @@ function CheckoutPage() {
 
   // Render Unique Products
   useEffect(() => {
-    const uniqIds = [...new Set(selectedProducts)];
+    const arrUniqIds = [...new Set(selectedProducts)];
+    const strUniqIds = arrUniqIds.join(',');
 
     const fetchProducts = async () => {
       try {
-        const productData = await getProductsChekcout(uniqIds);
+        const productData = await getProductsChekcout(strUniqIds);
 
         setProductsInfos(productData || []);
 
