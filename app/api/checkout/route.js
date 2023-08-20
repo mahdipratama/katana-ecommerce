@@ -3,8 +3,6 @@ import Product from '@/models/Product';
 import { NextResponse } from 'next/server';
 
 export async function GET(request) {
-  await connectToDB;
-
   const ids = request.nextUrl.searchParams.get('ids');
 
   if (!ids) {

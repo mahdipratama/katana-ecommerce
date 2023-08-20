@@ -36,9 +36,14 @@ function CheckoutPage() {
 
     const fetchProducts = async () => {
       try {
-        const productData = await getProductsChekcout(strUniqIds);
+        const res = await fetch(`/api/checkout?ids=${strUniqIds}`);
 
-        setProductsInfos(productData || []);
+        if (!res.ok)
+          throw new Error(`Request failed with status: ${res.status}`);
+
+        const data = await res.json();
+
+        setProductsInfos(data || []);
 
         setIsLoading(false);
       } catch (err) {
