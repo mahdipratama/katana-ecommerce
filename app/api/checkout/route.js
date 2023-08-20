@@ -7,11 +7,23 @@ export async function GET(request) {
 
   const ids = request.nextUrl.searchParams.get('ids');
 
-  if (ids) {
-    const idsArray = ids.split(',');
-
-    // Fetch products by specific IDs
-    const products = await Product.find({ _id: { $in: idsArray } }).exec();
-    return NextResponse.json(products);
+  if (!ids) {
+    return NextResponse.json({ message: 'Cart is empty' });
   }
+
+  const idsArray = ids.split(',');
+
+  if (idsArray.length === 0) {
+    return NextResponse.json({ message: 'Cart is empty' });
+  }
+
+  const products = await Product.find({ _id: { $in: idsArray } }).exec();
+
+  if (Product.length === 0) {
+    return NextResponse.json({
+      message: 'No products found for the provided IDs',
+    });
+  }
+
+  return NextResponse.json(products);
 }
