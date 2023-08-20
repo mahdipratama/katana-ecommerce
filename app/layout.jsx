@@ -10,13 +10,16 @@ export const metadata = {
   title: 'Mr. Bushido',
   description: 'Katana E-commerce',
   icons: {
-    icon: './favicon.png',
+    icon: './favicon.ico',
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className="overflow-x-hidden">
         <ProductsContextProvider>
           <CartContextProvider>
