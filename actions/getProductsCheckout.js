@@ -8,7 +8,7 @@ const getProductsChekcout = async productsId => {
 
     return data;
   } catch (err) {
-    console.error('Error fetching product: ', err);
+    console.log('Error fetching product: ', err);
   }
 };
 
