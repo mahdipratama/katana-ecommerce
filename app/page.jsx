@@ -11,11 +11,10 @@ import AnimeKatana from '@/components/AnimeKatana';
 import TantoKatana from '@/components/TantoKatana';
 
 import { useSearchParams } from 'next/navigation';
-import { toast } from 'react-hot-toast';
 
-function ThanksPage({ onClose }) {
+function ThanksPopup({ onClose }) {
   return (
-    <div className="bg-secondary fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-20 text-center p-10 rounded-[5px]">
+    <div className="bg-secondary w-[80%] sm:w-[50%] lg:w-[30%] fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-20 text-center p-10 rounded-[5px]">
       <h3 className="text-[24px] font-bold font-headingText mb-5">
         ⚔️ Honorable Thanks ⚔️
       </h3>
@@ -53,7 +52,7 @@ export default function Home() {
           isSuccess ? 'fixed' : 'hidden'
         }`}
         aria-hidden></div>
-      {isSuccess ? <ThanksPage onClose={setIsSuccess} /> : ''}
+      {isSuccess ? <ThanksPopup onClose={setIsSuccess} /> : ''}
       <Hero />
       <Featured />
       <CustomKatana />
