@@ -28,7 +28,6 @@ function CheckoutPage() {
   const [isPay, setIsPay] = useState(false);
 
   const methods = useForm();
-  const { register } = methods;
 
   // Render Unique Products
   useEffect(() => {
@@ -70,7 +69,7 @@ function CheckoutPage() {
           postalCode: checkoutData.postal,
           address: checkoutData.address,
           country: checkoutData.country,
-          products: checkoutData.products,
+          products: selectedProducts.join(','),
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -110,6 +109,8 @@ function CheckoutPage() {
     setSelectedProducts(updatedProducts);
   };
 
+  console.log(selectedProducts);
+
   return (
     <section className="layout">
       {isLoading ? (
@@ -141,13 +142,7 @@ function CheckoutPage() {
                 </div>
                 <Input {...address_validation} />
                 <Input {...country_validation} />
-                <input
-                  type="hidden"
-                  name="products"
-                  {...register('products', {
-                    value: selectedProducts.join(','),
-                  })}
-                />
+
                 <button
                   disabled={isPay}
                   className={`bg-secondary text-white font-semibold px-5 py-2 w-full rounded-[3px] mt-6  ${
