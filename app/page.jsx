@@ -44,10 +44,6 @@ export default function Home() {
       setIsSuccess(true);
       setSelectedProducts([]);
     }
-
-    if (searchParams.get('canceled')) {
-      toast.error('Something went wrong❗');
-    }
   }, [searchParams, setSelectedProducts]);
 
   return (

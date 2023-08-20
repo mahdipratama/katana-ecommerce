@@ -109,8 +109,6 @@ function CheckoutPage() {
     setSelectedProducts(updatedProducts);
   };
 
-  console.log(selectedProducts);
-
   return (
     <section className="layout">
       {isLoading ? (
