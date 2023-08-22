@@ -56,6 +56,7 @@ Now the challenge is to enable <a href='https://stripe.com/en-gb-us' target=_bla
 - Created schemas or models for interacting with the <a href='https://www.mongodb.com/atlas/database' target=_blank>MongoDB database</a> using Mongoose.
 - Integrating the website into the <a href='https://stripe.com/en-gb-us' target=_blank>Stripe </a>payment method with webhook events.
 - Display products with filters by category, and sorting options.
+- Add skeletons as a loading state
 - A lot of minor things
 
 <br>
