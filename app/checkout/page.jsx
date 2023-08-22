@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 
 import { useContext, useEffect, useState } from 'react';
@@ -142,9 +143,23 @@ function CheckoutPage() {
                 <Input {...address_validation} />
                 <Input {...country_validation} />
 
+                <div className="mt-6 ">
+                  <p className="text-[11px] text-center mb-2">
+                    use any of the{' '}
+                    <a
+                      href="https://stripe.com/docs/testing#cards"
+                      className="text-secondary">
+                      Stripe test cards
+                    </a>{' '}
+                    for this demo, e.g.{' '}
+                    <span className="text-slate-600">
+                      '4242 4242 4242 4242'
+                    </span>{' '}
+                  </p>
+                </div>
                 <button
                   disabled={isPay}
-                  className={`bg-secondary text-white font-semibold px-5 py-2 w-full rounded-[3px] mt-6  ${
+                  className={`bg-secondary text-white font-semibold px-5 py-2 w-full rounded-[3px]  ${
                     isPay ? 'cursor-not-allowed opacity-75' : ''
                   } `}>
                   {isPay ? 'Checkout...' : 'Check Out'}

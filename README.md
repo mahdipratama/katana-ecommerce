@@ -38,6 +38,9 @@ This is Fullstack E-Commerce platform using <a href='https://nextjs.org/' target
 In the <a href='https://github.com/mahdipratama/one-for-all'>previous project</a> I've already learn how to integrated a <a href='https://stripe.com/docs/webhooks' target=_blank>Stripe payment method</a>
 <br/>
 Now the challenge is to enable <a href='https://stripe.com/en-gb-us' target=_blank>webhook events</a> to receive events as they occur in Stripe accounts, so that my backend systems can execute actions accordingly to retrieve a piece of information about the payment.
+<br/>
+<br/>
+Of course, this payment is just a simulation, so I used a Stripe <a href='https://stripe.com/docs/test-mode'>test-mode</a> account for that, -- use `4242 4242 4242 4242` as a test card number with any CVC + future expiration date.
 <br>
 
 - Users should be able to:
