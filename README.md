@@ -33,7 +33,7 @@
 
 ## The Challenge
 
-This is Fullstack E-Commerce platform using <a href='https://nextjs.org/' target=_blank>Next.js</a> and Tailwind CSS for responsive styling.
+This is a Fullstack E-Commerce platform using <a href='https://nextjs.org/' target=_blank>Next.js</a> and Tailwind CSS for responsive styling.
 <br/>
 In the <a href='https://github.com/mahdipratama/one-for-all'>previous project</a> I've already learn how to integrated a <a href='https://stripe.com/docs/webhooks' target=_blank>Stripe payment method</a>
 <br/>
