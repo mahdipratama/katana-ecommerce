@@ -30,6 +30,13 @@ function Products() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // Update checkedCategory whenever the category changes
+    if (category) {
+      setCheckedCategory([category]);
+    }
+  }, [category]);
+
+  useEffect(() => {
     // Filter products
     const filteredProducts = products.filter(product => {
       const matchesCategories =

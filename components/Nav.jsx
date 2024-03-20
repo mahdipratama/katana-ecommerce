@@ -60,29 +60,17 @@ function Nav() {
             <li>Home</li>
           </Link>
 
-          <button
-            type="button"
-            onClick={() => {
-              window.location.href = '/products?category=Anime';
-            }}>
-            Anime Katana
-          </button>
+          <Link href={'/products?category=anime'}>
+            <li>Anime katana</li>
+          </Link>
 
-          <button
-            type="button"
-            onClick={() => {
-              window.location.href = '/products?category=custom';
-            }}>
-            Custom Katana
-          </button>
+          <Link href={'/products?category=custom'}>
+            <li>Custom katana</li>
+          </Link>
 
-          <button
-            type="button"
-            onClick={() => {
-              window.location.href = '/products?category=tanto';
-            }}>
-            Tanto
-          </button>
+          <Link href={'/products?category=tanto'}>
+            <li>Tanto</li>
+          </Link>
         </ul>
       </div>
     </nav>
