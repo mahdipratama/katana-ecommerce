@@ -1,11 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useState } from 'react';
 import Cart from './Cart';
 
 function Nav() {
+  const router = useRouter();
+
   const [activeMenu, setActiveMenu] = useState(false);
 
   return (
@@ -56,15 +59,30 @@ function Nav() {
           <Link href={'/'}>
             <li>Home</li>
           </Link>
-          <Link href={'/products?category=anime'}>
-            <li>Anime katana</li>
-          </Link>
-          <Link href={'/products?category=custom'}>
-            <li>Custom katana</li>
-          </Link>
-          <Link href={'/products?category=tanto'}>
-            <li>Tanto</li>
-          </Link>
+
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = '/products?category=Anime';
+            }}>
+            Anime Katana
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = '/products?category=custom';
+            }}>
+            Custom Katana
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = '/products?category=tanto';
+            }}>
+            Tanto
+          </button>
         </ul>
       </div>
     </nav>
